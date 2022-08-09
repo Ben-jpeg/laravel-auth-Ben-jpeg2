@@ -1,11 +1,11 @@
 FROM php:8.1.6-fpm-alpine
 
 
-RUN addgroup -g 1006 --system teacher
-RUN adduser -G teacher --system -D -s /bin/sh -u 1006 teacher
+RUN addgroup -g 1006 --system student
+RUN adduser -G student --system -D -s /bin/sh -u 1006 student
 
-RUN sed -i "s/user = www-data/user =teacher/g" /usr/local/etc/php-fpm.d/www.conf
-RUN sed -i "s/group = www-data/group = teacher/g" /usr/local/etc/php-fpm.d/www.conf
+RUN sed -i "s/user = www-data/user =student/g" /usr/local/etc/php-fpm.d/www.conf
+RUN sed -i "s/group = www-data/group = student/g" /usr/local/etc/php-fpm.d/www.conf
 
 RUN mkdir -p /var/www/html/public
 

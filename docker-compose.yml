@@ -59,7 +59,7 @@ services:
         build:
             context: .
             dockerfile: adminer.dockerfile
-        restart: unless-stopped
+        # restart: unless-stopped
         ports:
             - 8080:8080
         depends_on:

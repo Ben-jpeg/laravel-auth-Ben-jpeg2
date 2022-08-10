@@ -1,0 +1,13 @@
+@startuml request-lifecycle
+Client -> "Serveur HTTP" : Requête HTTP
+"Serveur HTTP" -> "Front Controller" : public/index.php
+"Front Controller" -> Router : Dispatch de la requête
+Router -> Middlewares : Filtration de la requête
+Middlewares -> Controller : Appel de l'action
+Controller -> Model : Accès aux données
+Controller -> Template : Transmission des données
+Controller -> Middlewares : Filtration de la réponse
+Middlewares -> "Front Controller" : Réponse
+"Front Controller" -> "Serveur HTTP" : Réponse
+"Serveur HTTP" -> Client : Réponse HTTP
+@enduml
